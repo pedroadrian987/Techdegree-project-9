@@ -442,34 +442,49 @@ $(".message_u .button").click(function(){//this gives an alert message if the in
 
 
 /*-------------settings-----------------------------------------------------*/
+if (localStorage.getItem("sendEmail") == "true"){//this makes the local storage to be remembered and displayed after the page is loaded
+	$(".settings .switch input").attr("checked", "true");
+}
 
+if (localStorage.getItem("publicProfile") == "true"){//this makes the local storage to be remembered and displayed after the page is loaded
+	$(".settings .switch2 input").attr("checked", "true");
+}
 
-if (localStorage.length == 0){//this makes if the localStorage is empty any chosen option false
-	localStorage.setItem("sendEmail", false);
-	localStorage.setItem("publicProfile", false);
+if (localStorage.getItem("timeZone") != null){//this makes the local storage to be remembered and displayed after the page is loaded
+	var tmZn = localStorage.getItem("timeZone");
+	var city = 'option[value="' + localStorage.getItem("timeZone") + '"]';
+	$('select').find(city).attr("selected", "selected");
 }
 
 
-$(".switch .slider").click(function(){//this makes the first on off switch be saved as false or true depending on the user's decision. also it keeps the value safe after a new load of the document
-	if (localStorage.getItem("sendEmail") == "false"){
-		localStorage.setItem("sendEmail", true);
-	} else if (localStorage.getItem("sendEmail") == "true" && $("input:checked + .slider")[0] == $(".slider.round.one")[0]){
-		localStorage.setItem("sendEmail", false);
-	}
-});
 
-$(".switch2 .slider").click(function(){//this makes the first on off switch be saved as false or true depending on the user's decision. also it keeps the value safe after a new load of the document
-	if (localStorage.getItem("publicProfile") == "false"){
-		localStorage.setItem("publicProfile", true);
-	} else if (localStorage.getItem("publicProfile") == "true" && $("input:checked + .slider")[1] || $("input:checked + .slider")[0] == $(".slider.round.two")[0]){
+
+$(".settings .button.send").click(function(){
+
+	if (localStorage.length == 0){//this makes if the localStorage is empty any chosen option false
+		localStorage.setItem("sendEmail", false);
 		localStorage.setItem("publicProfile", false);
 	}
-});
+
+	//this saves the checked or unchecked value of the input checkbox into the local storage
+	if ($(".settings .switch input").prop("checked")){
+		localStorage.setItem("sendEmail", true);
+	} else {
+		localStorage.setItem("sendEmail", false);
+	}
+
+	//this saves the checked or unchecked value of the input checkbox into the local storage
+	if ($(".settings .switch2 input").prop("checked")){
+		localStorage.setItem("publicProfile", true);
+	} else {
+		localStorage.setItem("publicProfile", false);
+	}
 
 
-
-$("select").click(function(){//this saves the selection of the timezone selected
+	//this saves the selection of the timezone selected into the local storage
 	if( $('select').val() != "placeholder"){
 		localStorage.setItem("timeZone", $('select').val());
 	}
+
+
 });

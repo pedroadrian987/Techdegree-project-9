@@ -1067,6 +1067,7 @@ that are set for the 630px screen */
   /* bar chart */
   section.bar{
     height:180px;
+    margin-top:20px;
     width:49.5%;
   }
 
@@ -1077,6 +1078,7 @@ that are set for the 630px screen */
   /* doughnut chart */
   section.dunkin{
     height:180px;
+    margin-top:20px;
     width:49.5%;
   }
 
@@ -1444,6 +1446,7 @@ that are set for the 1024px tablet screen */
   /* bar chart */
   section.bar{
     height:220px;
+    margin-top:45px;
     width:49.5%;
   }
 
@@ -1454,6 +1457,7 @@ that are set for the 1024px tablet screen */
   /* doughnut chart */
   section.dunkin{
     width:49.5%;
+    margin-top:45px;
     height:220px;
   }
 
@@ -1479,7 +1483,7 @@ that are set for the 1024px tablet screen */
 
   .twitter_num {
     font-size:32px;
-    margin: 5px 0 0 7px;
+    margin: 5px 15% 0 7px;
   }
 
   section #facebook {
@@ -1493,7 +1497,7 @@ that are set for the 1024px tablet screen */
 
   .facebook_num {
     font-size:32px;
-    margin: 5px 0 0 7px;
+    margin: 5px 15% 0 7px;
   }
 
   section #googlePlus {
